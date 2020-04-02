@@ -1,0 +1,66 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/page :: head"></head>
+<body cz-shortcut-listen="true">
+<div th:replace="fragments/page :: navbar"/>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <p> Preparat:  </p>  <p class="text-primary" th:text="${recipe.name}"/>
+        </div>
+        <div class="col">
+            <p> De la:  </p>  <p class="text-primary" th:text=" ${recipe.recipeFrom}"/>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <div class="col-4">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-info">Ingrediente</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ingredient: ${recipe.ingredients}">
+                    <td th:text="${ingredient.description}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-info">Instructiuni</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="instructions: ${recipe.instructions}">
+                    <td th:text="${instructions.description}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-info">Note</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="note: ${recipe.notes}">
+                    <td th:text="${note.description}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/page :: head"></head>
+<body cz-shortcut-listen="true">
+
+<div th:replace="fragments/page :: navbar"/>
+
+<div class="container">
+    <h3>Recipes </h3>
+    <tr th:each="recipe: ${recipes}">
+        <td><a th:href="@{/recipe/{id}(id=${recipe.id})}" th:text="${recipe.name}"> </a></td>
+        <br>
+    </tr>
+</div>
+
+
+</body>
+</html>

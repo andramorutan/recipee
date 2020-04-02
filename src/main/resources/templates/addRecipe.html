@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/page :: head"></head>
+<body cz-shortcut-listen="true">
+<div th:replace="fragments/page :: navbar"/>
+<div class="container">
+
+    <form action="#" th:action="@{/recipe/add}" th:object="${recipe}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-form-label" for="name">Name:</label>
+                <input type="text" class="form-control" th:field="*{name}" id="name">
+            </div>
+            <div class="form-group">
+                <label class="col-form-label" for="from">From:</label>
+                <input type="text" class="form-control" th:field="*{from}" id="from">
+            </div>
+            <div class="form-group">
+                <label class="col-form-label" for="pdfUrl">Pdf Url:</label>
+                <input type="text" class="form-control" th:field="*{pdfUrl}" id="pdfUrl">
+            </div>
+            <div class="form-group">
+                <label class="col-form-label" for="hashtags">Hashtags:</label>
+                <input type="text" class="form-control" th:field="*{hashTags}" id="hashtags">
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select class="form-control" id="category" th:field="*{category}">
+                    <option th:value="CAKES">Cakes</option>
+                    <option th:value="BAKES">Bakes</option>
+                    <option th:value="FOOD">Food</option>
+                    <option th:value="SOURDOUGH">Sourdough</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea class="form-control" id="ingredients" th:field="*{ingredients}" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="instructions">Instructions:</label>
+                <textarea class="form-control" id="instructions" th:field="*{instructions}" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea class="form-control" id="notes" th:field="*{notes}" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
