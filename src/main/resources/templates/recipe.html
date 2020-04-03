@@ -7,10 +7,12 @@
 <div class="container">
     <div class="row">
         <div class="col-3">
-            <p> Preparat:  </p>  <p class="text-primary" th:text="${recipe.name}"/>
+            <p> Preparat: </p>
+            <p class="text-primary" th:text="${recipe.name}"/>
         </div>
         <div class="col">
-            <p> De la:  </p>  <p class="text-primary" th:text=" ${recipe.recipeFrom}"/>
+            <p> De la: </p>
+            <p class="text-primary" th:text=" ${recipe.recipeFrom}"/>
         </div>
     </div>
 
@@ -60,7 +62,14 @@
             </table>
         </div>
     </div>
-
+    <div row>
+        <a th:href="@{/recipe/edit/{id}(id=${recipe.id})}">
+            <button type="button" class="btn btn-outline-primary">Edit</button>
+        </a>
+        <a th:href="@{/generate/{id}(id=${recipe.id})}">
+            <button type="button" class="btn btn-outline-secondary">Generate Pdf</button>
+        </a>
+    </div>
 </div>
 </body>
 </html>

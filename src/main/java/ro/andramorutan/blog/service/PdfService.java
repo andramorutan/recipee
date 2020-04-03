@@ -11,7 +11,6 @@ import ro.andramorutan.blog.model.Recipe;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +23,7 @@ public class PdfService
 {
   @Autowired
   private RecipeService recipeService;
-  private static final String JSXML_PATH = "/Users/andra.lapusan/Documents/personale/blog/src/main/resources/%s/pdf";
+  private static final String JSXML_PATH = "/Users/andra.lapusan/Documents/personale/blog/src/main/resources/%s.pdf";
 
   public String exportReport(Integer id) throws FileNotFoundException, JRException
   {

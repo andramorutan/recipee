@@ -52,6 +52,7 @@ public class RecipeController
   public String edit(@PathVariable Integer id, Model model)
   {
     model.addAttribute("recipe", new RecipeForm(recipeService.getRecipe(id)));
+    model.addAttribute("id", id);
     return "addRecipe";
   }
 

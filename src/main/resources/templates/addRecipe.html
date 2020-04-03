@@ -4,7 +4,7 @@
 <div th:replace="fragments/page :: navbar"/>
 <div class="container">
 
-    <form action="#" th:action="@{/recipe/add}" th:object="${recipe}" method="post">
+    <form action="#" th:action="${id == null}? @{/recipe/add} : @{/recipe/edit/{id}(id=${id})}" th:object="${recipe}" method="post">
         <fieldset>
             <div class="form-group">
                 <label class="col-form-label" for="name">Name:</label>

@@ -7,14 +7,14 @@
 <div class="container">
 
     <div class="text-primary" th:text="${recipe.name}"/>
-    <div>Varianta pdf:</div>
+    <div th:text="|Varianta pdf: ${recipe.pdfUrl}|"></div>
     <div>Ingrediente:</div>
     <div th:each="ingredient: ${recipe.ingredients}" th:text="${ingredient.description}"/>
     <div>Instructiuni:</div>
     <div th:each="instruction: ${recipe.instructions}" th:text="${instruction.description}"/>
     <div>Note:</div>
     <div th:each="note:  ${recipe.notes}"  th:text="${note.description}"/>
-
+    <div th:text="${recipe.hashtags}"></div>
 </div>
 </body>
 </html>

@@ -17,7 +17,7 @@ public class RecipeForm
   {
     name = recipe.getName();
     from = recipe.getRecipeFrom();
-    category = recipe.getCategory().name();
+    category = recipe.getCategory() == null? "CAKES" : recipe.getCategory().name();
     pdfUrl = recipe.getPdfUrl();
     hashTags = recipe.getHashtags();
     ingredients = recipe.getIngredientsAsString();
