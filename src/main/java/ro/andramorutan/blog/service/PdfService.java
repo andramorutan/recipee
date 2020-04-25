@@ -31,6 +31,7 @@ public class PdfService
 
     File file = ResourceUtils.getFile("classpath:pdf/pdf.jrxml");
     JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+    jasperReport.setProperty("net.sf.jasperreports.default.pdf.encoding", "Cp1252");
 
     Map<String, Object> parameters = new HashMap<>();
     parameters.put("name", recipe.getName());

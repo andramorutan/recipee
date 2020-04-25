@@ -3,7 +3,6 @@
 <body cz-shortcut-listen="true">
 <div th:replace="fragments/page :: navbar"/>
 
-
 <div class="container">
     <div class="row">
         <div class="col-3">
@@ -69,6 +68,11 @@
         <a th:href="@{/generate/{id}(id=${recipe.id})}">
             <button type="button" class="btn btn-outline-secondary">Generate Pdf</button>
         </a>
+
+        <form th:action="@{/recipe/delete/{id}(id=${recipe.id})}" method="post">
+            <button type="submit" class="btn btn-outline-primary">Delete</button>
+        </form>
+
     </div>
 </div>
 </body>

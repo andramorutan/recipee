@@ -62,4 +62,11 @@ public class RecipeController
     Recipe recipe = recipeService.updateRecipe(recipeForm, id);
     return String.format("redirect:/recipe/%s", recipe.getId());
   }
+
+  @PostMapping("/delete/{id}")
+  public String delete(@PathVariable Integer id)
+  {
+    recipeService.delete(id);
+    return "redirect:/";
+  }
 }

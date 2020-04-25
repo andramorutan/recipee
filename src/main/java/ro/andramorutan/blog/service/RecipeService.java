@@ -66,4 +66,9 @@ public class RecipeService
     populateRecipe(recipeForm, recipe);
     return recipeRepository.save(recipe);
   }
+
+  public void delete(Integer id)
+  {
+    recipeRepository.deleteById(id);
+  }
 }
