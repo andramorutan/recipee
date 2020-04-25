@@ -62,18 +62,31 @@
         </div>
     </div>
     <div row>
+        <div class="col">
         <a th:href="@{/recipe/edit/{id}(id=${recipe.id})}">
             <button type="button" class="btn btn-outline-primary">Edit</button>
         </a>
         <a th:href="@{/generate/{id}(id=${recipe.id})}">
-            <button type="button" class="btn btn-outline-secondary">Generate Pdf</button>
+            <button type="button" class="btn btn-outline-primary">Generate Pdf</button>
         </a>
+            <a th:href="@{/recipe/{id}/insta(id=${recipe.id})}">
+            <button type="button" class="btn btn-outline-primary">Insta</button>
+        </a>
+            <a>
+                <button type="button" class="btn btn-outline-primary" id="deleteButton">Delete</button>
+            </a>
 
-        <form th:action="@{/recipe/delete/{id}(id=${recipe.id})}" method="post">
-            <button type="submit" class="btn btn-outline-primary">Delete</button>
+        <form id="deleteForm" th:action="@{/recipe/delete/{id}(id=${recipe.id})}" method="post" >
         </form>
+        </div>
 
     </div>
 </div>
+<script>
+    $("#deleteButton").click(function() {
+        alert("here");
+        $("#deleteForm").submit();
+    })
+</script>
 </body>
 </html>

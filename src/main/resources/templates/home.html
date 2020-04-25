@@ -5,11 +5,14 @@
 <div th:replace="fragments/page :: navbar"/>
 
 <div class="container">
-    <h3>Recipes </h3>
-    <tr th:each="recipe: ${recipes}">
-        <td><a th:href="@{/recipe/{id}(id=${recipe.id})}" th:text="${recipe.name}"> </a></td>
-        <br>
-    </tr>
+    <h3>Categories </h3>
+    <div class="row">
+        <div class="col-3" th:each="category: ${categories}">
+            <a th:href="@{/recipes/{category}(category=${category})}">
+                <img class="card-img" th:src="@{/image/{category}.jpg(category=${category})}" alt="@{category}"/>
+            </a>
+        </div>
+    </div>
 </div>
 
 </body>

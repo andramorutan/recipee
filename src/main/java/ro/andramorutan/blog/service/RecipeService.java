@@ -8,6 +8,7 @@ import ro.andramorutan.blog.model.Recipe;
 import ro.andramorutan.blog.repository.RecipeRepository;
 import ro.andramorutan.blog.web.model.RecipeForm;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,5 +62,10 @@ public class RecipeService {
 
     public void delete(Integer id) {
         recipeRepository.deleteById(id);
+    }
+
+    public List<Recipe> getRecipesByCategory(String category) {
+        Category cat = Category.valueOf(category);
+        return  cat == null ? new ArrayList<>() :recipeRepository.findRecipesByCategory(cat);
     }
 }

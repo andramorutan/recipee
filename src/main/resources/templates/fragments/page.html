@@ -27,8 +27,8 @@
                        aria-expanded="false">Retete <span
                             class="caret"></span></a>
                     <div class="dropdown-menu" aria-labelledby="download">
-                        <a class="dropdown-item" th:each="recipe: ${recipes}" th:href="@{/recipe/{id}(id=${recipe.id})}"
-                           th:text="${recipe.name}"></a>
+                        <a class="dropdown-item" th:each="category: ${categories}" th:href="@{/recipes/{category}(category=${category})}"
+                           th:text="${category}"></a>
                     </div>
                 </li>
 
@@ -41,7 +41,7 @@
 </div>
 
 <div th:fragment="copy">
-    &copy; 2011 The Good Thymes Virtual Grocery
+    &copy; 2020 File de retete
 </div>
 
 </body>
