@@ -1,6 +1,5 @@
 package ro.andramorutan.blog.model;
 
-public enum Category
-{
-  CAKES, BAKES, FOOD, SOURDOUGH
+public enum Category {
+    CAKES, BAKES, FOOD, SOURDOUGH
 }

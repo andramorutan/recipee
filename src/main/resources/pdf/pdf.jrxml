@@ -1,161 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
               name="Report" pageWidth="595" pageHeight="420" columnWidth="535"
-              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="868819c0-2e1e-457b-84c5-82067f527855">
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+              uuid="868819c0-2e1e-457b-84c5-82067f527855">
 
 
-  <style name="field" fontSize="7" vTextAlign="Middle"/>
-  <style name="header" fontSize="10" forecolor="#008080" vTextAlign="Middle"/>
-  <style name="title" fontSize="10" forecolor="#008080" vTextAlign="Middle"/>
+    <style name="field" fontSize="7" vTextAlign="Middle"/>
+    <style name="header" fontSize="10" forecolor="#008080" vTextAlign="Middle"/>
+    <style name="title" fontSize="10" forecolor="#008080" vTextAlign="Middle"/>
 
-  <style name="Table_CH" mode="Opaque" forecolor="#008080" vTextAlign="Middle">
-    <box>
-      <bottomPen lineWidth="0.5" lineColor="#008080"/>
-    </box>
-  </style>
-  <style name="Table_TD">
-    <box>
-      <bottomPen lineWidth="0.5" lineColor="#008080"/>
-    </box>
-  </style>
+    <style name="Table_CH" mode="Opaque" forecolor="#008080" vTextAlign="Middle">
+        <box>
+            <bottomPen lineWidth="0.5" lineColor="#008080"/>
+        </box>
+    </style>
+    <style name="Table_TD">
+        <box>
+            <bottomPen lineWidth="0.5" lineColor="#008080"/>
+        </box>
+    </style>
 
-  <subDataset name="ingredients">
-    <field name="description" class="java.lang.String"/>
-  </subDataset>
+    <subDataset name="ingredients">
+        <field name="description" class="java.lang.String"/>
+    </subDataset>
 
-  <subDataset name="instructions">
-    <field name="description" class="java.lang.String"/>
-  </subDataset>
+    <subDataset name="instructions">
+        <field name="description" class="java.lang.String"/>
+    </subDataset>
 
-  <subDataset name="notes">
-    <field name="description" class="java.lang.String"/>
-  </subDataset>
+    <subDataset name="notes">
+        <field name="description" class="java.lang.String"/>
+    </subDataset>
 
-  <parameter name="name" class="java.lang.String"/>
-  <parameter name="recipe_from" class="java.lang.String"/>
+    <parameter name="name" class="java.lang.String"/>
+    <parameter name="recipe_from" class="java.lang.String"/>
 
-  <parameter name="ingredients" class="java.util.List"/>
-  <parameter name="instructions" class="java.util.List"/>
-  <parameter name="notes" class="java.util.List"/>
+    <parameter name="ingredients" class="java.util.List"/>
+    <parameter name="instructions" class="java.util.List"/>
+    <parameter name="notes" class="java.util.List"/>
 
-  <background>
-    <band splitType="Stretch"/>
-  </background>
-  <title>
-    <band height="40" splitType="Stretch">
-      <staticText>
-        <reportElement x="0" y="0" width="60" height="20" style="header"/>
-        <text><![CDATA[Preparat:]]></text>
-      </staticText>
-      <textField>
-        <reportElement x="0" y="20" width="120" height="20" style="header"/>
-        <textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement x="200" y="0" width="30" height="20" style="header"/>
-        <text><![CDATA[De la:]]></text>
-      </staticText>
-      <textField>
-        <reportElement x="200" y="20" width="300" height="20" style="header"/>
-        <textFieldExpression><![CDATA[$P{recipe_from}]]></textFieldExpression>
-      </textField>
-    </band>
-  </title>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="40" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="60" height="20" style="header"/>
+                <text><![CDATA[Preparat:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="20" width="120" height="20" style="header"/>
+                <textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="200" y="0" width="30" height="20" style="header"/>
+                <text><![CDATA[De la:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="200" y="20" width="300" height="20" style="header"/>
+                <textFieldExpression><![CDATA[$P{recipe_from}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
 
-  <detail>
-    <band height="250" splitType="Stretch">
-      <property name="local_mesure_unitheight" value="pixel"/>
-      <componentElement>
-        <reportElement x="0" y="0" width="120" height="250" >
-          <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
-          <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
-        </reportElement>
-        <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-          <datasetRun subDataset="ingredients">
-            <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{ingredients})]]></dataSourceExpression>
-          </datasetRun>
-          <jr:column width="120" >
-            <jr:columnHeader style="Table_CH" height="20">
-              <staticText>
-                <reportElement key="" style="title" x="0" y="0" width="120" height="20"/>
-                <box leftPadding="2"/>
-                <text><![CDATA[Ingrediente]]></text>
-              </staticText>
-            </jr:columnHeader>
-            <jr:detailCell style="Table_TD" height="20">
-              <textField>
-                <reportElement style="field" x="0" y="0" width="120" height="20" />
-                <box leftPadding="2"/>
-                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
-              </textField>
-            </jr:detailCell>
-          </jr:column>
-        </jr:table>
-      </componentElement>
+    <detail>
+        <band height="250" splitType="Stretch">
+            <property name="local_mesure_unitheight" value="pixel"/>
+            <componentElement>
+                <reportElement x="0" y="0" width="120" height="250">
+                    <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+                </reportElement>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="ingredients">
+                        <dataSourceExpression>
+                            <![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{ingredients})]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="120">
+                        <jr:columnHeader style="Table_CH" height="20">
+                            <staticText>
+                                <reportElement key="" style="title" x="0" y="0" width="120" height="20"/>
+                                <box leftPadding="2"/>
+                                <text><![CDATA[Ingrediente]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="20">
+                            <textField>
+                                <reportElement style="field" x="0" y="0" width="120" height="20"/>
+                                <box leftPadding="2"/>
+                                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
 
-      <componentElement>
-        <reportElement x="150" y="0" width="400" height="250">
-          <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
-          <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
-        </reportElement>
-        <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-          <datasetRun subDataset="instructions">
-            <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{instructions})]]></dataSourceExpression>
-          </datasetRun>
-          <jr:column width="400" >
-            <jr:columnHeader style="Table_CH" height="20">
-              <staticText>
-                <reportElement key="" style="title" x="0" y="0" width="400" height="20" uuid="455dd69b-6966-4e3a-8c4e-7cca221e8216"/>
-                <box leftPadding="2"/>
-                <text><![CDATA[Instructiuni]]></text>
-              </staticText>
-            </jr:columnHeader>
-            <jr:detailCell style="Table_TD" height="20">
-              <textField>
-                <reportElement style="field" x="0" y="0" width="400" height="20" uuid="7e5eaa4e-54ff-4903-92f6-9ace8b234d8a"/>
-                <box leftPadding="2"/>
-                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
-              </textField>
-            </jr:detailCell>
-          </jr:column>
-        </jr:table>
-      </componentElement>
-    </band>
+            <componentElement>
+                <reportElement x="150" y="0" width="400" height="250">
+                    <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+                </reportElement>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="instructions">
+                        <dataSourceExpression>
+                            <![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{instructions})]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="400">
+                        <jr:columnHeader style="Table_CH" height="20">
+                            <staticText>
+                                <reportElement key="" style="title" x="0" y="0" width="400" height="20"
+                                               uuid="455dd69b-6966-4e3a-8c4e-7cca221e8216"/>
+                                <box leftPadding="2"/>
+                                <text><![CDATA[Instructiuni]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="20">
+                            <textField>
+                                <reportElement style="field" x="0" y="0" width="400" height="20"
+                                               uuid="7e5eaa4e-54ff-4903-92f6-9ace8b234d8a"/>
+                                <box leftPadding="2"/>
+                                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+        </band>
 
-  </detail>
-  <summary>
-    <band height="50" splitType="Stretch">
-      <property name="local_mesure_unitheight" value="pixel"/>
-      <componentElement>
-        <reportElement x="0" y="0" width="555" height="50" uuid="816bfec8-4c6a-4764-a924-01330d771558">
-          <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
-          <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
-        </reportElement>
-        <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-          <datasetRun subDataset="notes">
-            <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{notes})]]></dataSourceExpression>
-          </datasetRun>
-          <jr:column width="560" uuid="261584de-decc-4972-bfb8-2f883377f67c">
-            <jr:columnHeader style="Table_CH" height="15">
-              <staticText>
-                <reportElement key="" style="title" x="0" y="0" width="160" height="15" uuid="455dd69b-6966-4e3a-8c4e-7cca221e8216"/>
-                <box leftPadding="2"/>
-                <text><![CDATA[Notes]]></text>
-              </staticText>
-            </jr:columnHeader>
-            <jr:detailCell style="Table_TD" height="15">
-              <textField>
-                <reportElement style="field" x="0" y="0" width="400" height="15" uuid="7e5eaa4e-54ff-4903-92f6-9ace8b234d8a"/>
-                <box leftPadding="2"/>
-                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
-              </textField>
-            </jr:detailCell>
-          </jr:column>
-        </jr:table>
-      </componentElement>
+    </detail>
+    <summary>
+        <band height="50" splitType="Stretch">
+            <property name="local_mesure_unitheight" value="pixel"/>
+            <componentElement>
+                <reportElement x="0" y="0" width="555" height="50" uuid="816bfec8-4c6a-4764-a924-01330d771558">
+                    <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+                </reportElement>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="notes">
+                        <dataSourceExpression>
+                            <![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{notes})]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="560" uuid="261584de-decc-4972-bfb8-2f883377f67c">
+                        <jr:columnHeader style="Table_CH" height="15">
+                            <staticText>
+                                <reportElement key="" style="title" x="0" y="0" width="160" height="15"
+                                               uuid="455dd69b-6966-4e3a-8c4e-7cca221e8216"/>
+                                <box leftPadding="2"/>
+                                <text><![CDATA[Notes]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="15">
+                            <textField>
+                                <reportElement style="field" x="0" y="0" width="400" height="15"
+                                               uuid="7e5eaa4e-54ff-4903-92f6-9ace8b234d8a"/>
+                                <box leftPadding="2"/>
+                                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
 
-    </band>
-  </summary>
+        </band>
+    </summary>
 </jasperReport>

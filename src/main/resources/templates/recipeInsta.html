@@ -13,7 +13,7 @@
     <div>Instructiuni:</div>
     <div th:each="instruction: ${recipe.instructions}" th:text="${instruction.description}"/>
     <div>Note:</div>
-    <div th:each="note:  ${recipe.notes}"  th:text="${note.description}"/>
+    <div th:each="note:  ${recipe.notes}" th:text="${note.description}"/>
     <div th:text="${recipe.hashtags}"></div>
 </div>
 </body>

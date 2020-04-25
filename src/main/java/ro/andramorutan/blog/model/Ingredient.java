@@ -1,47 +1,36 @@
 package ro.andramorutan.blog.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="ingredient")
-public class Ingredient
-{
-  @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
-  private Integer id;
+@Table(name = "ingredient")
+public class Ingredient {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-  private String description;
+    private String description;
 
-  public Ingredient()
-  {
-  }
+    public Ingredient() {
+    }
 
-  public Ingredient(String description)
-  {
-    this.description = description;
-  }
+    public Ingredient(String description) {
+        this.description = description;
+    }
 
-  public Integer getId()
-  {
-    return id;
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public void setId(Integer id)
-  {
-    this.id = id;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-  public String getDescription()
-  {
-    return description;
-  }
+    public String getDescription() {
+        return description;
+    }
 
-  public void setDescription(String description)
-  {
-    this.description = description;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
